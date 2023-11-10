@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 struct cust
 {
@@ -7,7 +8,7 @@ struct cust
     double bal;
 };
 
-void nameout(struct cust arr[])
+void nameout(struct cust arr[])  
 {
     for(int i = 0; i < 15; i++)
     {
@@ -22,7 +23,7 @@ void balancetotal(struct cust arr[])
 {
     for(int i = 0; i < 15; i++)
     {
-        if(arr[i].bal > 10000)
+        if(arr[i].bal > 10000) 
         {
             arr[i].bal += 1000;
         }
@@ -39,7 +40,7 @@ void withdrawing(struct cust arr[], char account[50], double amount)
             {
                 arr[i].bal -= amount;
             }
-            else
+            else //if not enough money is there
             {
                 printf("\nRequired balance unavailable");
             }
@@ -56,14 +57,14 @@ int main()
         struct cust cus;
         printf("\nEnter the account number: ");
         scanf("%s", cus.acc_no);
-        printf("\nEnter the name of custome : ");
+        printf("\nEnter the name of customer : ");
         scanf("%s", cus.name);
         printf("Enter balance : ");
-        scanf("%ld", &cus.bal);
+        scanf("%lf", &cus.bal);
         data[i] = cus;
     }
 
-    nameout(data);
+    nameout(data); //if more than 5k balance
     balancetotal(data);
 
     char withdraw_acc[50];
@@ -72,7 +73,7 @@ int main()
     scanf("%s", withdraw_acc);
     double withdraw_amt;
     printf("Enter the amount to withdraw from account : ");
-    scanf("%ld", &withdraw_amt);
+    scanf("%lf", &withdraw_amt);
     withdrawing(data, withdraw_acc, withdraw_amt);
 
     return 0;
