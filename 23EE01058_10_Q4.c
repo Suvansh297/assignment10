@@ -17,6 +17,7 @@ int search(struct stud arr[], int num)
             return i;
         }
     }
+    return 100;
 }
 
 void sort(struct stud arr[])
@@ -58,6 +59,8 @@ int main()
     scanf("%d", &search_reg);
 
     int numm = search(data, search_reg);
+    if (numm==100) {printf("\nwrong");}
+    else
     printf("\nName: %s\nBranch: %s\nCGPA: %f\n", data[numm].name, data[numm].branch, &data[numm].cgpa);
 
     sort(data);
